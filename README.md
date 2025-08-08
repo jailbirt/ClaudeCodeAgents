@@ -15,33 +15,59 @@ ClaudeCodeAgentMaker/
 ├── README.md
 └── .claude/
     ├── settings.local.json
-    └── [functional-area]/
-        ├── settings.local.json
-        └── agents/
+    └── agents/
+        ├── [functional-area]/
+        │   ├── agent-name-1.md
+        │   ├── agent-name-2.md
+        │   └── agent-name-3.md
+        └── [another-functional-area]/
             ├── agent-name-1.md
-            ├── agent-name-2.md
-            └── agent-name-3.md
+            └── agent-name-2.md
 ```
 
-### Current Functional Areas
+### Current Functional Areas and Agents
 
-- **marketingB2BSaaS/**: B2B SaaS marketing specialists
-  - `b2b-growth-marketer.md` - Growth marketing and lead generation expert
-  - `b2b-saas-pmm-strategist.md` - Product marketing manager specialist
-  - `b2b-saas-visual-designer.md` - Professional B2B design expert
-  - `paid-media-strategist.md` - Paid advertising campaign specialist
+#### **Marketing B2B SaaS** (`marketingB2BSaaS/`)
+- `b2b-growth-marketer.md` - Growth marketing and lead generation expert
+- `b2b-saas-pmm-strategist.md` - Product marketing manager specialist
+- `b2b-saas-visual-designer.md` - Professional B2B design expert
+- `instagram-curator.md` - Instagram content strategy and curation specialist
+- `linkedin-curator.md` - LinkedIn B2B content and networking expert
+- `paid-media-strategist.md` - Paid advertising campaign specialist
+
+#### **Software Engineering** (`software-engineering/`)
+- `ai-engineer.md` - AI/ML implementation and integration specialist
+- `backend-architect.md` - Backend systems design and API development expert
+- `devops-automator.md` - CI/CD and infrastructure automation specialist
+- `frontend-developer.md` - UI/UX implementation and frontend performance expert
+- `mobile-app-builder.md` - Native and cross-platform mobile development specialist
+- `rapid-prototyper.md` - MVP and proof-of-concept development expert
+- `test-writer-fixer.md` - Testing strategy and test automation specialist
 
 ## How to Add a New Agent
 
-### Step 1: Choose or Create a Functional Area
+### Method 1: Using the /agent Command (Recommended)
 
-1. **Using an Existing Area**: Navigate to `.claude/[existing-area]/agents/`
+The easiest way to create a new agent is using Claude Code's built-in `/agent` command:
+
+1. Open Claude Code in your terminal
+2. Type `/agent` and press Enter
+3. Follow the interactive prompts to define your agent:
+   - Choose a functional area or create a new one
+   - Provide the agent name and description
+   - Define the agent's persona and capabilities
+   - Claude Code will automatically create the agent file in the correct location
+
+### Method 2: Manual Creation
+
+#### Step 1: Choose or Create a Functional Area
+
+1. **Using an Existing Area**: Navigate to `.claude/agents/[existing-area]/`
 2. **Creating a New Area**: 
-   - Create a new directory: `.claude/[new-area-name]/`
-   - Create an `agents/` subdirectory within it
-   - Add a `settings.local.json` file (optional, for area-specific configurations)
+   - Create a new directory: `.claude/agents/[new-area-name]/`
+   - Add your agent definitions directly in this directory
 
-### Step 2: Create the Agent Definition File
+#### Step 2: Create the Agent Definition File
 
 Create a new `.md` file in the appropriate `agents/` directory using this naming convention:
 - Use lowercase letters
@@ -49,7 +75,7 @@ Create a new `.md` file in the appropriate `agents/` directory using this naming
 - Be descriptive and specific
 - Example: `b2b-sales-enablement-specialist.md`
 
-### Step 3: Agent Definition Template
+#### Step 3: Agent Definition Template
 
 Use this template for your agent definition:
 
@@ -162,37 +188,79 @@ Before finalizing your agent, test it with various scenarios:
 
 ## Creating Agents with Metaprompting
 
-For creating multiple agents efficiently, you can use metaprompting. Use the following template as a base for your agent creation requests:
+Metaprompting is a two-step process that helps you create high-quality agents efficiently. First, you use Claude to generate the perfect prompt for your agent, then you use that prompt with the `/agent` command to create the actual agent.
 
-### The Perfect Prompt for Agent Creation
+### The Two-Step Process
+
+#### Step 1: Generate the Agent Prompt with Metaprompting
+
+Use this template to ask Claude to create a customized prompt for your specific agent:
 
 ```
-Hello, I need you to create a new document with AI agent profiles, following the same structure and quality as the document ai_agent_prompts_marketing_design.
+Hello, I need you to create a prompt for defining a new AI agent. This prompt will be used with Claude Code's /agent command.
 
-Here are the details:
+Here are the details for the agent I want to create:
 
-Business Type: [Specify the business type here. E.g., B2B SaaS, Fashion E-commerce, FinTech, etc.]
+Business Type: [Specify the business type here. E.g., B2B SaaS, Fashion E-commerce, FinTech, Healthcare Tech, etc.]
 
-Department: [Specify the department here. E.g., Sales, Product Marketing, Customer Success, etc.]
+Department/Functional Area: [Specify the area here. E.g., Sales, Product Marketing, Customer Success, Engineering, Finance, etc.]
 
-Roles to Create:
+Agent Role: [Specific role name, e.g., "Customer Success Operations Manager", "DevSecOps Engineer", etc.]
 
-[Role Name 1]
+Key Responsibilities: [List 3-5 main responsibilities this agent should handle]
 
-[Role Name 2]
+Target Audience: [Who will interact with this agent? E.g., startup founders, enterprise teams, etc.]
 
-[And so on...]
+Please generate a comprehensive prompt that I can use with /agent to create this agent. The prompt should include:
+- A clear persona and professional identity
+- Core expertise and specializations
+- Methodologies and frameworks they should use
+- Communication style and approach
+- Specific tools and deliverables
 
-Please generate a complete profile for each role in English. I will handle the final review and adjustments, but I need you to develop the complete foundation, including:
-
-A detailed System Prompt (500+ words) covering the persona, process, and knowledge domains.
-
-Three practical and specific usage examples for each role.
-
-Please maintain the format without tables, using lists and headings instead.
+Make the prompt detailed enough to create a high-quality, specialized agent.
 ```
 
-This metaprompting approach helps you quickly generate comprehensive agent profiles that follow the established patterns and quality standards in this repository.
+#### Step 2: Use the Generated Prompt with /agent
+
+1. Copy the prompt that Claude generates for you
+2. Open Claude Code in your terminal
+3. Type `/agent` and press Enter
+4. When prompted for the agent details, paste the generated prompt
+5. Claude Code will create the agent file in the correct location with proper formatting
+
+### Example Workflow
+
+**Step 1 - You ask Claude:**
+```
+I need you to create a prompt for defining a new AI agent for a B2B SaaS company's Customer Success department. The role is "Customer Success Operations Manager" who helps optimize CS processes and metrics.
+```
+
+**Claude generates a detailed prompt like:**
+```
+Create a Customer Success Operations Manager agent who specializes in B2B SaaS customer retention and growth. This agent should be an expert in CS metrics (NRR, GRR, churn), process optimization, and team enablement. They should use frameworks like HEART, customer health scoring, and journey mapping. The agent should be data-driven, strategic, and focused on scalable solutions...
+```
+
+**Step 2 - You use /agent:**
+- Type `/agent` in Claude Code
+- Paste the generated prompt when asked
+- The agent is automatically created with proper structure
+
+### Why This Two-Step Process Works
+
+- **Precision**: The metaprompt ensures you think through all aspects of the agent
+- **Quality**: Claude helps craft a comprehensive agent definition
+- **Consistency**: All agents follow the same high standards
+- **Speed**: Faster than writing agent definitions from scratch
+
+### Advanced Metaprompting Tips
+
+1. **Be Specific About Context**: Include industry specifics, company size, and unique challenges
+2. **Reference Existing Agents**: Ask Claude to model the new agent after successful existing ones
+3. **Iterate on the Prompt**: If the first generated prompt isn't perfect, ask Claude to refine it
+4. **Batch Creation**: Generate multiple related agent prompts in one session for a cohesive team
+
+This metaprompting approach ensures your agents are well-designed, comprehensive, and perfectly suited to their intended purpose.
 
 ## Additional Resources
 
