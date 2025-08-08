@@ -160,6 +160,45 @@ Before finalizing your agent, test it with various scenarios:
 4. **Consistency**: Verify the agent maintains its persona across interactions
 5. **Value Validation**: Confirm the agent provides meaningful expertise
 
+## Creating Agents with Metaprompting
+
+For creating multiple agents efficiently, you can use metaprompting. Use the following template as a base for your agent creation requests:
+
+### The Perfect Prompt for Agent Creation
+
+```
+Hello, I need you to create a new document with AI agent profiles, following the same structure and quality as the document ai_agent_prompts_marketing_design.
+
+Here are the details:
+
+Business Type: [Specify the business type here. E.g., B2B SaaS, Fashion E-commerce, FinTech, etc.]
+
+Department: [Specify the department here. E.g., Sales, Product Marketing, Customer Success, etc.]
+
+Roles to Create:
+
+[Role Name 1]
+
+[Role Name 2]
+
+[And so on...]
+
+Please generate a complete profile for each role in English. I will handle the final review and adjustments, but I need you to develop the complete foundation, including:
+
+A detailed System Prompt (500+ words) covering the persona, process, and knowledge domains.
+
+Three practical and specific usage examples for each role.
+
+Please maintain the format without tables, using lists and headings instead.
+```
+
+This metaprompting approach helps you quickly generate comprehensive agent profiles that follow the established patterns and quality standards in this repository.
+
+## Additional Resources
+
+To learn more about how agents work within Claude Code, please refer to the official documentation:
+- **Sub-Agents Documentation**: [https://docs.anthropic.com/en/docs/claude-code/sub-agents](https://docs.anthropic.com/en/docs/claude-code/sub-agents)
+
 ## Contact
 
 For more information, suggestions for new agents, or to better understand how these roles can benefit your organization, please contact us at [https://theeye.io](https://theeye.io)
