@@ -1,0 +1,25 @@
+{
+  "name": "claudecodeagentmaker",
+  "version": "1.0.0",
+  "description": "A structured repository for creating and managing specialized AI agent definitions for Claude Code, organized by functional areas to enhance productivity across business operations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jailbirt/ClaudeCodeAgents.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jailbirt/ClaudeCodeAgents/issues"
+  },
+  "homepage": "https://github.com/jailbirt/ClaudeCodeAgents#readme",
+  "dependencies": {
+    "@playwright/test": "^1.54.2",
+    "playwright": "^1.54.2"
+  }
+}
